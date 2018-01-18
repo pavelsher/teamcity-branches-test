@@ -28,6 +28,6 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
     }
 
     requirements {
-        contains(param = "system.agent.name", value = "Linux")
+        contains(param = "teamcity.agent.jvm.os.name", value = "Linux")
     }
 })
