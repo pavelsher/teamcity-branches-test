@@ -7,7 +7,7 @@
     <build-runners>
       <runner id="RUNNER_2060" name="" type="simpleRunner">
         <parameters>
-          <param name="script.content" value="echo &quot;This is a default branch&quot;" />
+          <param name="script.content" value="echo &quot;This is a feature-1 branch&quot;" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
