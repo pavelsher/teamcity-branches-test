@@ -17,13 +17,17 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
         script {
             scriptContent =
                     """
-                    echo "This is a feature-1 branch
-                    echo %%MY_ENV_VAR%%
+                    echo "This is a feature-1 branch"
+                    echo ${'$'}MY_ENV_VAR
                     """".trimIndent()
         }
     }
 
     params {
         param(name = "env.MY_ENV_VAR", value = "some value")
+    }
+
+    requirements {
+        contains(param = "teamcity.agent.name", value = "Linux")
     }
 })
