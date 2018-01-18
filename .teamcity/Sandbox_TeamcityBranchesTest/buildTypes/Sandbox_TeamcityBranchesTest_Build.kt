@@ -12,12 +12,25 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
         root(Sandbox_TeamcityBranchesTest.vcsRoots.Sandbox_TeamcityBranchesTest_HttpsGithubComPavelsherTeamcityBranchesTestRefsHead)
     }
 
+    artifactRules = "file.txt"
+
     steps {
         script {
+            name = "Step 1"
+            scriptContent = """echo "This is a first step""""
+        }
+
+        script {
+            name = "Step 2"
             scriptContent = """
                     echo "This is a feature-1 branch"
                     echo ${'$'}MY_ENV_VAR
                     """.trimIndent()
+        }
+
+        script {
+            name = "Create Artifact"
+            scriptContent = """echo "some content" > file.txt"""
         }
     }
 
