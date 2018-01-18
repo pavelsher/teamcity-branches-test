@@ -15,11 +15,10 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
 
     steps {
         script {
-            scriptContent =
-                    """
+            scriptContent = """
                     echo "This is a feature-1 branch"
                     echo ${'$'}MY_ENV_VAR
-                    """".trimIndent()
+                    """.trimIndent()
         }
     }
 
