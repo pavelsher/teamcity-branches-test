@@ -8,10 +8,6 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
     id = "Sandbox_TeamcityBranchesTest_Build"
     name = "Build"
 
-    vcs {
-        root(Sandbox_TeamcityBranchesTest.vcsRoots.Sandbox_TeamcityBranchesTest_HttpsGithubComPavelsherTeamcityBranchesTestRefsHead)
-    }
-
     artifactRules = "file.txt"
 
     steps {
