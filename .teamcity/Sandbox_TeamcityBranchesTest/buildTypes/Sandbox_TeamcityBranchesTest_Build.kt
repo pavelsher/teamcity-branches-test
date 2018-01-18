@@ -1,6 +1,7 @@
 package Sandbox_TeamcityBranchesTest.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2017_2.*
+import jetbrains.buildServer.configs.kotlin.v2017_2.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2017_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2017_2.triggers.vcs
 
@@ -22,6 +23,17 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
 
     triggers {
         vcs {
+        }
+    }
+
+    features {
+        commitStatusPublisher {
+            publisher = github {
+                githubUrl = "https://api.github.com"
+                authType = personalToken {
+                    token = "credentialsJSON:3274f877-6110-4bb6-9668-dfef8b301152"
+                }
+            }
         }
     }
 })
