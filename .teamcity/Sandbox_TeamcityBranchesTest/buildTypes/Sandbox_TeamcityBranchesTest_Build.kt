@@ -35,5 +35,8 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
                 }
             }
         }
+        feature {
+            type = "perfmon"
+        }
     }
 })
