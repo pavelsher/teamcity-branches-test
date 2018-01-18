@@ -18,7 +18,7 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
             scriptContent =
                     """
                     echo "This is a feature-1 branch
-                    echo %MY_ENV_VAR%
+                    echo %%MY_ENV_VAR%%
                     """".trimIndent()
         }
     }
