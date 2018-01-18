@@ -11,17 +11,19 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
 
     vcs {
         root(Sandbox_TeamcityBranchesTest.vcsRoots.Sandbox_TeamcityBranchesTest_HttpsGithubComPavelsherTeamcityBranchesTestRefsHead)
-
     }
 
     steps {
         script {
-            scriptContent = """echo "This is a default branch""""
+            scriptContent =
+                    """
+                    echo "This is a feature-1 branch
+                    echo %MY_ENV_VAR%
+                    """".trimIndent()
         }
     }
 
-    triggers {
-        vcs {
-        }
+    params {
+        param(name = "env.MY_ENV_VAR", value = "some value")
     }
 })
