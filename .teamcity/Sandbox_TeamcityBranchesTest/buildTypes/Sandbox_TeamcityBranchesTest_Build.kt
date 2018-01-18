@@ -3,6 +3,8 @@ package Sandbox_TeamcityBranchesTest.buildTypes
 import jetbrains.buildServer.configs.kotlin.v2017_2.*
 import jetbrains.buildServer.configs.kotlin.v2017_2.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2017_2.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2017_2.failureConditions.BuildFailureOnText
+import jetbrains.buildServer.configs.kotlin.v2017_2.failureConditions.failOnText
 import jetbrains.buildServer.configs.kotlin.v2017_2.triggers.vcs
 
 object Sandbox_TeamcityBranchesTest_Build : BuildType({
@@ -23,6 +25,15 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
 
     triggers {
         vcs {
+        }
+    }
+
+    failureConditions {
+        failOnText {
+            conditionType = BuildFailureOnText.ConditionType.CONTAINS
+            pattern = "This is a"
+            failureMessage = "Error!"
+            reverse = false
         }
     }
 
