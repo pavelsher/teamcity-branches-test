@@ -12,6 +12,8 @@ object Sandbox_TeamcityBranchesTest_Build : BuildType({
 
     artifactRules = "file.txt"
 
+    buildNumberPattern = "my-feature-%build.counter%"
+
     steps {
         script {
             name = "Step 1"
